@@ -8,6 +8,9 @@
           version    : 'v12.0'
         });
         FB.AppEvents.logPageView();
+        FB.getLoginStatus(function(response) {
+          console.log(response);
+        });
       };
 
       (function(d, s, id){
@@ -17,10 +20,6 @@
          js.src = "https://connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-
-      FB.getLoginStatus(function(response) {
-        console.log(response);
-      });
     </script>
   </head>
   <body>
