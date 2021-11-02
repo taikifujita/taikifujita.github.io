@@ -8,9 +8,6 @@
           version    : 'v12.0'
         });
         FB.AppEvents.logPageView();
-        FB.getLoginStatus(function(response) {
-          console.log(response);
-        });
       };
 
       (function(d, s, id){
@@ -21,6 +18,16 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
+    <script>
+      FB.getLoginStatus(function(response) {
+        console.log(response);
+      });
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+          console.log(response);
+        });
+      }
+    </script>
   </head>
   <body>
     hello world
@@ -30,5 +37,9 @@
       data-width="450"
       data-show-faces="true">
     </div>
+    <fb:login-button
+      scope="public_profile,email,instagram_basic,pages_show_list"
+      onlogin="checkLoginState();">
+    </fb:login-button>
   </body>
 </html>
